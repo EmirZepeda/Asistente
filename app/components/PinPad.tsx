@@ -1,6 +1,6 @@
 // components/PinPad.tsx
-import { useState } from "react"; // <--- FALTA ESTO
 import { motion } from "framer-motion";
+import { useState } from "react";
 
 export const PinPad = ({ onComplete }: { onComplete: (pin: string) => void }) => {
   const [digits, setDigits] = (useState(""));

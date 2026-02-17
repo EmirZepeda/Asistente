@@ -1,7 +1,6 @@
 // app/layout.tsx
 import "./globals.css";
 
-
 export const metadata = {
   title: "Vault.Lock - Emir Zepeda",
   description: "Bóveda de seguridad biométrica",

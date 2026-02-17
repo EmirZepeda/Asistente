@@ -1,36 +1,218 @@
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+@import "tailwindcss";
 
 :root {
-  --background: #0a0f1a;
+  /* Confidential Vault Color Scheme */
+  --vault-bg-primary: #0f1829;
+  --vault-bg-secondary: #1a2332;
+  --vault-bg-card: #1e293b;
+  --vault-accent-blue: #3b82f6;
+  --vault-accent-blue-light: #60a5fa;
+  --vault-success: #10b981;
+  --vault-danger: #ef4444;
+  --vault-text-primary: #ffffff;
+  --vault-text-secondary: rgba(255, 255, 255, 0.7);
+  --vault-text-muted: rgba(255, 255, 255, 0.5);
+  --vault-border: rgba(255, 255, 255, 0.1);
 }
 
 body {
-  background-color: #0a0f1a;
+  background: var(--vault-bg-primary);
+  color: var(--vault-text-primary);
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Inter', 'Roboto', sans-serif;
+}
+
+/* Utility Classes */
+.vault-card {
+  background: #1e293b;
+  border-radius: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 1.5rem;
+  transition: all 0.3s;
+}
+
+.vault-card-hover {
+  cursor: pointer;
+}
+
+.vault-card-hover:hover {
+  background: #243447;
+  border-color: rgba(255, 255, 255, 0.2);
+  transform: scale(1.02);
+}
+
+.vault-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.375rem 0.75rem;
+  border-radius: 9999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+}
+
+.vault-badge-blue {
+  background: rgba(59, 130, 246, 0.1);
+  color: #60a5fa;
+  border: 1px solid rgba(59, 130, 246, 0.2);
+}
+
+.vault-badge-green {
+  background: rgba(16, 185, 129, 0.1);
+  color: #10b981;
+  border: 1px solid rgba(16, 185, 129, 0.2);
+}
+
+.vault-badge-red {
+  background: rgba(239, 68, 68, 0.1);
+  color: #ef4444;
+  border: 1px solid rgba(239, 68, 68, 0.2);
+}
+
+.vault-button {
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.5rem;
+  font-weight: 500;
+  transition: all 0.2s;
+}
+
+.vault-button-primary {
+  background: #3b82f6;
   color: white;
 }
 
-/* La clase mágica para tus tarjetas */
-.glass-card {
-  background: rgba(255, 255, 255, 0.03);
+.vault-button-primary:hover {
+  background: #2563eb;
+}
+
+.vault-button-secondary {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  color: white;
+}
+
+.vault-button-secondary:hover {
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.vault-input {
+  width: 100%;
+  background: #1a2332;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 0.5rem;
+  padding: 0.75rem 1rem;
+  color: white;
+}
+
+.vault-input::placeholder {
+  color: rgba(255, 255, 255, 0.4);
+}
+
+.vault-input:focus {
+  outline: none;
+  border-color: rgba(59, 130, 246, 0.5);
+}
+
+.glassmorphism {
+  background: rgba(255, 255, 255, 0.05);
   backdrop-filter: blur(12px);
   border: 1px solid rgba(255, 255, 255, 0.1);
-  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
 }
 
-/* Línea de escaneo animada */
-.scan-line {
-  width: 100%;
-  height: 2px;
-  background: #22c55e;
-  box-shadow: 0 0 15px #22c55e;
-  position: absolute;
-  animation: scanning 2s infinite linear;
+/* Animations */
+@keyframes face-scan {
+
+  0%,
+  100% {
+    transform: translateY(-50%);
+    opacity: 0.3;
+  }
+
+  50% {
+    transform: translateY(50%);
+    opacity: 1;
+  }
 }
 
-@keyframes scanning {
-  0% { top: 0; opacity: 0; }
-  50% { opacity: 1; }
-  100% { top: 100%; opacity: 0; }
+@keyframes pulse-glow {
+
+  0%,
+  100% {
+    box-shadow: 0 0 20px rgba(59, 130, 246, 0.3);
+  }
+
+  50% {
+    box-shadow: 0 0 40px rgba(59, 130, 246, 0.6);
+  }
+}
+
+@keyframes corner-bracket {
+
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+
+  50% {
+    transform: scale(1.05);
+    opacity: 0.7;
+  }
+}
+
+@keyframes slide-up {
+  from {
+    transform: translateY(100%);
+    opacity: 0;
+  }
+
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+@keyframes fade-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.animate-face-scan {
+  animation: face-scan 2s ease-in-out infinite;
+}
+
+.animate-pulse-glow {
+  animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.animate-slide-up {
+  animation: slide-up 0.3s ease-out;
+}
+
+.animate-fade-in {
+  animation: fade-in 0.2s ease-in;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--vault-bg-primary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--vault-bg-card);
+  border-radius: 3px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #2d3748;
 }

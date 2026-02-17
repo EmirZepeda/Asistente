@@ -1,12 +1,13 @@
 import type { Config } from "tailwindcss";
 
 const config: Config = {
-  content: [
-    "./app/**/*.{js,ts,jsx,tsx,mdx}",
-    "./components/**/*.{js,ts,jsx,tsx,mdx}",
-    "./app/componentes/**/*.{js,ts,jsx,tsx,mdx}", // <--- ESTA LÍNEA ES VITAL
-    "./src/**/*.{js,ts,jsx,tsx,mdx}",
-  ],
+ // tailwind.config.ts
+content: [
+  "./app/**/*.{js,ts,jsx,tsx,mdx}",
+  "./components/**/*.{js,ts,jsx,tsx,mdx}",
+  "./app/components/**/*.{js,ts,jsx,tsx,mdx}", // <--- CAMBIA 'componentes' por 'components'
+  "./src/**/*.{js,ts,jsx,tsx,mdx}",
+],
   theme: {
     extend: {
       colors: {

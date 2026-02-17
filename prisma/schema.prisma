@@ -1,0 +1,61 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = "file:./dev.db"
+}
+
+model Folder {
+  id            String   @id @default(uuid())
+  name          String
+  securityLevel String   // 'standard' | 'enhanced' | 'maximum'
+  iconColor     String   @default("bg-blue-500")
+  icon          String   @default("Folder")
+  createdAt     DateTime @default(now())
+  updatedAt     DateTime @updatedAt
+  
+  // Relations
+  items         Item[]
+}
+
+model Item {
+  id          String   @id @default(uuid())
+  type        String   // 'note' | 'voice' | 'photo' | 'scan'
+  title       String
+  description String?
+  content     String?  // For text notes
+  fileUrl     String?  // For files
+  fileSize    String?
+  duration    String?  // For voice/video
+  encrypted   Boolean  @default(true)
+  createdAt   DateTime @default(now())-
+  updatedAt   DateTime @updatedAt
+  
+  // Relations
+  folderId    String
+  folder      Folder   @relation(fields: [folderId], references: [id], onDelete: Cascade)
+}
+
+model Settings {
+  id                String   @id @default("1")
+  faceIdEnabled     Boolean  @default(true)
+  fingerprintBackup Boolean  @default(false)
+  autoLock          Boolean  @default(true)
+  stealthMode       Boolean  @default(false)
+  updatedAt         DateTime @updatedAt
+}
+
+model LoginActivity {
+  id         String   @id @default(uuid())
+  device     String
+  deviceType String   // 'mobile' | 'desktop'
+  location   String
+  action     String
+  status     String   // 'success' | 'safe' | 'suspicious'
+  createdAt  DateTime @default(now())
+}
