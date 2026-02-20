@@ -49,9 +49,9 @@ export function SecureViewer({ fileName, fileSize, onBack, onLock }: SecureViewe
                             <ArrowLeft className="text-white" size={24} />
                         </button>
                         <div>
-                            <h1 className="text-lg font-bold text-red-400 uppercase tracking-wider">SECURE VIEWER</h1>
+                            <h1 className="text-lg font-bold text-red-400 uppercase tracking-wider">VISOR SEGURO</h1>
                             <p className="text-red-400/80 text-xs">
-                                Session expires in <span className="font-bold">{formatTime(timeRemaining)}</span>
+                                La sesión expira en <span className="font-bold">{formatTime(timeRemaining)}</span>
                             </p>
                         </div>
                     </div>
@@ -76,14 +76,14 @@ export function SecureViewer({ fileName, fileSize, onBack, onLock }: SecureViewe
                             <div className="flex items-center gap-3 text-xs text-white/50">
                                 <span>{fileSize}</span>
                                 <span>•</span>
-                                <span>Encrypted AES-256</span>
+                                <span>Cifrado AES-256</span>
                             </div>
                         </div>
                     </div>
 
                     <button className="w-full border-2 border-red-500/40 text-red-400 px-4 py-2.5 rounded-lg font-semibold text-sm hover:bg-red-500/10 transition-all flex items-center justify-center gap-2">
                         <X size={16} />
-                        Self-Destruct
+                        Auto-Destruir
                     </button>
                 </div>
             </div>
@@ -101,7 +101,7 @@ export function SecureViewer({ fileName, fileSize, onBack, onLock }: SecureViewe
                                 </svg>
                             </div>
                             <p className="text-white/40 text-sm">
-                                Document Preview
+                                Vista previa del documento
                             </p>
                         </div>
                     </div>
@@ -120,7 +120,7 @@ export function SecureViewer({ fileName, fileSize, onBack, onLock }: SecureViewe
                                     userSelect: 'none'
                                 }}
                             >
-                                CONFIDENTIAL DO NOT SHARE
+                                CONFIDENCIAL NO COMPARTIR
                             </div>
                         ))}
                     </div>
@@ -132,21 +132,21 @@ export function SecureViewer({ fileName, fileSize, onBack, onLock }: SecureViewe
                 <div className="flex gap-3 mb-4">
                     <button className="flex-1 vault-button vault-button-secondary flex items-center justify-center gap-2">
                         <Link2 size={18} />
-                        Share Encrypted Link
+                        Compartir Enlace Cifrado
                     </button>
                     <button
                         onClick={onLock}
                         className="flex-1 bg-red-500 hover:bg-red-600 text-white px-6 py-3 rounded-lg font-medium transition-all flex items-center justify-center gap-2"
                     >
                         <Lock size={18} />
-                        Lock Now
+                        Bloquear Ahora
                     </button>
                 </div>
 
                 {/* Footer Warning */}
                 <div className="text-center">
                     <p className="text-xs text-white/40 leading-relaxed">
-                        Screen recording disabled. Biometric auth required to reopen.
+                        Grabación de pantalla desactivada. Se requiere autenticación biométrica para reabrir.
                     </p>
                 </div>
             </div>

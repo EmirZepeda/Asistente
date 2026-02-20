@@ -74,10 +74,10 @@ export function RestrictedAccessModal({
                             disabled={isScanning}
                             className="text-white/60 hover:text-white text-sm font-medium disabled:opacity-30"
                         >
-                            ← Cancel
+                            ← Cancelar
                         </button>
                         <button className="text-blue-400 text-sm font-semibold border border-blue-500/30 px-4 py-1.5 rounded-lg">
-                            SECURE
+                            SEGURO
                         </button>
                     </div>
 
@@ -92,7 +92,7 @@ export function RestrictedAccessModal({
 
                         {/* Folder Info */}
                         <h3 className="text-2xl font-bold text-white mb-2">{folderName}</h3>
-                        <p className="text-white/50 text-sm mb-8">{fileCount} encrypted files</p>
+                        <p className="text-white/50 text-sm mb-8">{fileCount} archivos cifrados</p>
 
                         {/* Face ID Icon with Glow */}
                         <div className="relative mb-8">
@@ -118,7 +118,7 @@ export function RestrictedAccessModal({
                         </div>
 
                         {/* Title */}
-                        <h2 className="text-xl font-bold text-white mb-2">Restricted Access</h2>
+                        <h2 className="text-xl font-bold text-white mb-2">Acceso Restringido</h2>
 
                         {/* Status Message */}
                         <AnimatePresence mode="wait">

@@ -42,7 +42,7 @@ export function FaceIDAuth({ onAuthenticate }: FaceIDAuthProps) {
             <div className="pt-12">
                 <div className="vault-badge vault-badge-blue">
                     <Lock size={14} />
-                    AUTHENTICATION REQUIRED
+                    AUTENTICACIÓN REQUERIDA
                 </div>
             </div>
 

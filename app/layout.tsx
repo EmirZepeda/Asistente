@@ -1,5 +1,6 @@
 // app/layout.tsx
 import "./globals.css";
+import { Providers } from "./Providers";
 
 export const metadata = {
   title: "Vault.Lock - Emir Zepeda",
@@ -14,7 +15,7 @@ export default function RootLayout({
   return (
     <html lang="es">
       <body className="antialiased bg-[#0a0f1a]">
-        {children}
+        <Providers>{children}</Providers>
       </body>
     </html>
   );

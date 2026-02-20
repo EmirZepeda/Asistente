@@ -6,7 +6,8 @@ import { Shield, Lock, Smartphone, ArrowRight, Check, Mail } from 'lucide-react'
 import { signIn } from "next-auth/react";
 
 interface OnboardingProps {
-    onComplete: () => void;
+    onLogin: () => void;
+    onRegister: () => void;
 }
 
 const slides = [
@@ -33,7 +34,7 @@ const slides = [
     }
 ];
 
-export function Onboarding({ onComplete }: OnboardingProps) {
+export function Onboarding({ onLogin, onRegister }: OnboardingProps) {
     const [currentSlide, setCurrentSlide] = useState(0);
     const [showLoginOptions, setShowLoginOptions] = useState(false);
 
@@ -84,27 +85,16 @@ export function Onboarding({ onComplete }: OnboardingProps) {
                             Continuar con Google
                         </button>
 
-                        <button
-                            onClick={onComplete}
-                            className="w-full bg-white/5 hover:bg-white/10 text-white font-semibold py-4 rounded-xl transition-all flex items-center justify-center gap-3 border border-white/10"
-                        >
-                            <Mail size={20} />
-                            Ingresar con correo
-                        </button>
+
                     </div>
 
                     <div className="text-center pt-8">
                         <p className="text-white/40 text-sm">
-                            ¿No tienes cuenta? <button className="text-blue-400 hover:underline font-medium">Regístrate</button>
+                            ¿No tienes cuenta? <button onClick={onRegister} className="text-blue-400 hover:underline font-medium">Regístrate</button>
                         </p>
                     </div>
 
-                    <div className="mt-8 flex justify-center">
-                        <div className="flex items-center gap-2 px-4 py-2 bg-white/5 rounded-full border border-white/10">
-                            <Check size={12} className="text-blue-400" />
-                            <span className="text-xs text-white/60">Acceso cifrado de extremo a extremo</span>
-                        </div>
-                    </div>
+
                 </motion.div>
             </div>
         );
@@ -173,12 +163,7 @@ export function Onboarding({ onComplete }: OnboardingProps) {
                         <ArrowRight size={20} className="group-hover:translate-x-1 transition-transform" />
                     </button>
 
-                    {currentSlide === 1 && (
-                        <div className="flex items-center gap-2 px-3 py-1.5 bg-blue-500/10 rounded-full border border-blue-500/20">
-                            <Check size={12} className="text-blue-400" />
-                            <span className="text-[10px] uppercase tracking-wider font-bold text-blue-400">Zero-Knowledge Architecture</span>
-                        </div>
-                    )}
+
                 </div>
             </div>
         </div>

@@ -3,7 +3,7 @@ import { LucideIcon } from 'lucide-react';
 
 interface BadgeProps {
   children: React.ReactNode;
-  variant?: 'blue' | 'green' | 'red';
+  variant?: 'blue' | 'green' | 'red' | 'purple';
   icon?: LucideIcon;
   className?: string;
 }
@@ -12,7 +12,8 @@ export function Badge({ children, variant = 'blue', icon: Icon, className = '' }
   const variantStyles = {
     blue: 'vault-badge-blue',
     green: 'vault-badge-green',
-    red: 'vault-badge-red'
+    red: 'vault-badge-red',
+    purple: 'vault-badge-purple'
   };
 
   return (

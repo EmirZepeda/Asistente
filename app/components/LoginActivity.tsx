@@ -27,8 +27,8 @@ export function LoginActivity({ onBack }: LoginActivityProps) {
             device: 'iPhone 14 Pro',
             deviceType: 'mobile',
             location: 'San Francisco, CA',
-            action: 'Face ID login successful',
-            time: '2 mins ago',
+            action: 'Inicio de sesión con Face ID exitoso',
+            time: 'Hace 2 min',
             status: 'success'
         },
         {
@@ -36,8 +36,8 @@ export function LoginActivity({ onBack }: LoginActivityProps) {
             device: 'MacBook Pro',
             deviceType: 'desktop',
             location: 'San Francisco, CA',
-            action: 'Password login attempt',
-            time: 'Yesterday',
+            action: 'Intento de inicio de sesión con contraseña',
+            time: 'Ayer',
             status: 'safe'
         },
         {
@@ -45,8 +45,8 @@ export function LoginActivity({ onBack }: LoginActivityProps) {
             device: 'Windows Desktop',
             deviceType: 'desktop',
             location: 'New York, NY',
-            action: 'Failed login attempt (3x)',
-            time: '2 days ago',
+            action: 'Intento fallido de inicio de sesión (3x)',
+            time: 'Hace 2 días',
             status: 'suspicious'
         },
         {
@@ -54,8 +54,8 @@ export function LoginActivity({ onBack }: LoginActivityProps) {
             device: 'iPad Air',
             deviceType: 'mobile',
             location: 'San Francisco, CA',
-            action: 'Touch ID login successful',
-            time: '3 days ago',
+            action: 'Inicio de sesión con Touch ID exitoso',
+            time: 'Hace 3 días',
             status: 'success'
         },
         {
@@ -63,8 +63,8 @@ export function LoginActivity({ onBack }: LoginActivityProps) {
             device: 'Android Phone',
             deviceType: 'mobile',
             location: 'Los Angeles, CA',
-            action: 'Fingerprint login successful',
-            time: '5 days ago',
+            action: 'Inicio de sesión con huella digital exitoso',
+            time: 'Hace 5 días',
             status: 'success'
         }
     ];
@@ -86,8 +86,8 @@ export function LoginActivity({ onBack }: LoginActivityProps) {
                             <ArrowLeft className="text-white" size={24} />
                         </button>
                         <div>
-                            <h1 className="text-2xl font-bold text-white">Login/Security Activity</h1>
-                            <p className="text-white/50 text-sm mt-1">Monitor all access attempts</p>
+                            <h1 className="text-2xl font-bold text-white">Actividad de Acceso y Seguridad</h1>
+                            <p className="text-white/50 text-sm mt-1">Monitorea todos los intentos de acceso</p>
                         </div>
                     </div>
 
@@ -101,29 +101,29 @@ export function LoginActivity({ onBack }: LoginActivityProps) {
                     <button
                         onClick={() => setFilter('all')}
                         className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${filter === 'all'
-                                ? 'bg-blue-500 text-white'
-                                : 'bg-white/5 text-white/60 hover:bg-white/10'
+                            ? 'bg-blue-500 text-white'
+                            : 'bg-white/5 text-white/60 hover:bg-white/10'
                             }`}
                     >
-                        All
+                        Todos
                     </button>
                     <button
                         onClick={() => setFilter('success')}
                         className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${filter === 'success'
-                                ? 'bg-green-500 text-white'
-                                : 'bg-white/5 text-white/60 hover:bg-white/10'
+                            ? 'bg-green-500 text-white'
+                            : 'bg-white/5 text-white/60 hover:bg-white/10'
                             }`}
                     >
-                        Successful
+                        Exitosos
                     </button>
                     <button
                         onClick={() => setFilter('suspicious')}
                         className={`px-4 py-2 rounded-lg text-sm font-medium transition-all ${filter === 'suspicious'
-                                ? 'bg-red-500 text-white'
-                                : 'bg-white/5 text-white/60 hover:bg-white/10'
+                            ? 'bg-red-500 text-white'
+                            : 'bg-white/5 text-white/60 hover:bg-white/10'
                             }`}
                     >
-                        Suspicious
+                        Sospechosos
                     </button>
                 </div>
             </div>
@@ -138,8 +138,8 @@ export function LoginActivity({ onBack }: LoginActivityProps) {
                             <div className="flex items-start gap-4">
                                 {/* Device Icon */}
                                 <div className={`w-12 h-12 rounded-xl flex items-center justify-center ${activity.status === 'success' ? 'bg-green-500/20' :
-                                        activity.status === 'suspicious' ? 'bg-red-500/20' :
-                                            'bg-blue-500/20'
+                                    activity.status === 'suspicious' ? 'bg-red-500/20' :
+                                        'bg-blue-500/20'
                                     }`}>
                                     <DeviceIcon size={24} className={
                                         activity.status === 'success' ? 'text-green-400' :
@@ -168,18 +168,18 @@ export function LoginActivity({ onBack }: LoginActivityProps) {
                                         <div>
                                             {activity.status === 'success' && (
                                                 <Badge variant="green" className="text-xs">
-                                                    ● Verified
+                                                    ● Verificado
                                                 </Badge>
                                             )}
                                             {activity.status === 'safe' && (
                                                 <Badge variant="blue" className="text-xs">
-                                                    ● Safe
+                                                    ● Seguro
                                                 </Badge>
                                             )}
                                             {activity.status === 'suspicious' && (
                                                 <Badge variant="red" className="text-xs">
                                                     <AlertTriangle size={12} />
-                                                    Suspicious
+                                                    Sospechoso
                                                 </Badge>
                                             )}
                                         </div>
@@ -189,16 +189,16 @@ export function LoginActivity({ onBack }: LoginActivityProps) {
                                                 {activity.status === 'suspicious' ? (
                                                     <>
                                                         <button className="text-red-400 text-xs font-semibold hover:text-red-300 transition-colors">
-                                                            Report
+                                                            Reportar
                                                         </button>
                                                         <span className="text-white/20">•</span>
                                                         <button className="text-blue-400 text-xs font-semibold hover:text-blue-300 transition-colors">
-                                                            Mark as Safe
+                                                            Marcar como Seguro
                                                         </button>
                                                     </>
                                                 ) : (
                                                     <button className="text-blue-400 text-xs font-semibold hover:text-blue-300 transition-colors">
-                                                        Mark as Safe
+                                                        Marcar como Seguro
                                                     </button>
                                                 )}
                                             </div>
@@ -217,9 +217,9 @@ export function LoginActivity({ onBack }: LoginActivityProps) {
                     <div className="flex items-start gap-3">
                         <Shield className="text-blue-400 mt-0.5" size={20} />
                         <div>
-                            <h4 className="text-white font-semibold text-sm mb-1">Security Tip</h4>
+                            <h4 className="text-white font-semibold text-sm mb-1">Consejo de Seguridad</h4>
                             <p className="text-blue-200/70 text-xs leading-relaxed">
-                                Review your login activity regularly. Report any suspicious attempts immediately to secure your account.
+                                Revisa tu actividad de acceso regularmente. Reporta cualquier intento sospechoso de inmediato para asegurar tu cuenta.
                             </p>
                         </div>
                     </div>

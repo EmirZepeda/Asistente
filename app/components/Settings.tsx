@@ -48,7 +48,7 @@ export function Settings({ onBack }: SettingsProps) {
                     >
                         <ArrowLeft className="text-white" size={24} />
                     </button>
-                    <h1 className="text-2xl font-bold text-white">Security & Vault Settings</h1>
+                    <h1 className="text-2xl font-bold text-white">Seguridad y Configuración</h1>
                 </div>
             </div>
 
@@ -66,10 +66,10 @@ export function Settings({ onBack }: SettingsProps) {
                             <div className="w-12 h-12 bg-blue-500/30 rounded-xl flex items-center justify-center">
                                 <Lock className="text-blue-300" size={24} />
                             </div>
-                            <h2 className="text-xl font-bold text-blue-200 uppercase tracking-wide">VAULT ACTIVE</h2>
+                            <h2 className="text-xl font-bold text-blue-200 uppercase tracking-wide">BÓVEDA ACTIVA</h2>
                         </div>
                         <p className="text-blue-100/80 text-sm leading-relaxed">
-                            Your secure notes are encrypted. Biometric access is currently enabled.
+                            Tus notas están cifradas. El acceso biométrico está habilitado.
                         </p>
                     </div>
                 </div>
@@ -77,7 +77,7 @@ export function Settings({ onBack }: SettingsProps) {
 
             {/* Biometrics Section */}
             <div className="px-6 mb-8">
-                <h2 className="text-xs font-bold text-white/50 uppercase tracking-wider mb-4">BIOMETRICS</h2>
+                <h2 className="text-xs font-bold text-white/50 uppercase tracking-wider mb-4">BIOMETRÍA</h2>
                 <div className="space-y-4">
                     <div className="vault-card">
                         <div className="flex items-center gap-4">
@@ -92,7 +92,7 @@ export function Settings({ onBack }: SettingsProps) {
                                 <ToggleSwitch
                                     enabled={faceIdEnabled}
                                     onChange={setFaceIdEnabled}
-                                    label="Face ID Unlock"
+                                    label="Desbloqueo con Face ID"
                                 />
                             </div>
                         </div>
@@ -110,7 +110,7 @@ export function Settings({ onBack }: SettingsProps) {
                                 <ToggleSwitch
                                     enabled={fingerprintBackup}
                                     onChange={setFingerprintBackup}
-                                    label="Fingerprint Backup"
+                                    label="Huella Dactilar (Respaldo)"
                                 />
                             </div>
                         </div>
@@ -120,7 +120,7 @@ export function Settings({ onBack }: SettingsProps) {
 
             {/* Behavior Section */}
             <div className="px-6">
-                <h2 className="text-xs font-bold text-white/50 uppercase tracking-wider mb-4">BEHAVIOR</h2>
+                <h2 className="text-xs font-bold text-white/50 uppercase tracking-wider mb-4">COMPORTAMIENTO</h2>
                 <div className="space-y-4">
                     <div className="vault-card">
                         <div className="flex items-center gap-4">
@@ -134,7 +134,7 @@ export function Settings({ onBack }: SettingsProps) {
                                 <ToggleSwitch
                                     enabled={autoLock}
                                     onChange={setAutoLock}
-                                    label="Auto-Lock on App Exit"
+                                    label="Bloqueo Automático al Salir"
                                 />
                             </div>
                         </div>
@@ -152,8 +152,8 @@ export function Settings({ onBack }: SettingsProps) {
                                 <ToggleSwitch
                                     enabled={stealthMode}
                                     onChange={setStealthMode}
-                                    label="Stealth Mode"
-                                    description="Prevents screen capture and hides app contents in the recent apps switcher."
+                                    label="Modo Sigilo"
+                                    description="Evita capturas de pantalla y oculta el contenido en el gestor de apps recientes."
                                 />
                             </div>
                         </div>

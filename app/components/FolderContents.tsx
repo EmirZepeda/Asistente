@@ -69,7 +69,7 @@ export function FolderContents({ folderName, onBack, onFileClick }: FolderConten
 
                     {/* Session Timer */}
                     <div className="text-xs text-white/60">
-                        Session expires in <span className="text-blue-400 font-semibold">{formatTime(timeRemaining)}</span>
+                        Sesión expira en <span className="text-blue-400 font-semibold">{formatTime(timeRemaining)}</span>
                     </div>
                 </div>
 
@@ -78,7 +78,7 @@ export function FolderContents({ folderName, onBack, onFileClick }: FolderConten
                     <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-white/40" size={20} />
                     <input
                         type="text"
-                        placeholder="Search encrypted files..."
+                        placeholder="Buscar archivos cifrados..."
                         value={searchQuery}
                         onChange={(e) => setSearchQuery(e.target.value)}
                         className="w-full pl-12 pr-4 py-3 bg-[#1a2332] border border-white/10 rounded-xl text-white placeholder-white/40 focus:outline-none focus:border-blue-500/50"
@@ -99,9 +99,9 @@ export function FolderContents({ folderName, onBack, onFileClick }: FolderConten
                             <div className="flex items-center gap-4">
                                 {/* File Icon */}
                                 <div className={`w-12 h-12 rounded-xl flex items-center justify-center ${file.type === 'pdf' ? 'bg-red-500/20' :
-                                        file.type === 'docx' ? 'bg-blue-500/20' :
-                                            file.type === 'jpg' ? 'bg-purple-500/20' :
-                                                'bg-green-500/20'
+                                    file.type === 'docx' ? 'bg-blue-500/20' :
+                                        file.type === 'jpg' ? 'bg-purple-500/20' :
+                                            'bg-green-500/20'
                                     }`}>
                                     <Icon size={24} className={
                                         file.type === 'pdf' ? 'text-red-400' :
@@ -116,9 +116,9 @@ export function FolderContents({ folderName, onBack, onFileClick }: FolderConten
                                     <h3 className="text-white font-semibold mb-1">{file.name}</h3>
                                     <div className="flex items-center gap-3">
                                         <Badge variant="green" className="text-xs">
-                                            Encrypted
+                                            Cifrado
                                         </Badge>
-                                        <span className="text-white/50 text-xs">Last accessed {file.accessed}</span>
+                                        <span className="text-white/50 text-xs">Accedido {file.accessed}</span>
                                     </div>
                                 </div>
 
@@ -133,7 +133,7 @@ export function FolderContents({ folderName, onBack, onFileClick }: FolderConten
 
                 {filteredFiles.length === 0 && (
                     <div className="text-center py-12">
-                        <p className="text-white/50">No files found</p>
+                        <p className="text-white/50">No se encontraron archivos</p>
                     </div>
                 )}
             </div>
@@ -143,7 +143,7 @@ export function FolderContents({ folderName, onBack, onFileClick }: FolderConten
                 <div className="p-4 bg-blue-500/5 border border-blue-500/20 rounded-xl">
                     <p className="text-xs text-blue-300/80 leading-relaxed">
                         <Lock className="inline mr-1" size={12} />
-                        Files in this folder are protected with AES-256 encryption. Session will auto-lock after 5 minutes of inactivity.
+                        Los archivos de esta carpeta están protegidos con cifrado AES-256. La sesión se bloqueará automáticamente después de 5 minutos de inactividad.
                     </p>
                 </div>
             </div>
@@ -156,7 +156,7 @@ export function FolderContents({ folderName, onBack, onFileClick }: FolderConten
                         className={`flex flex-col items-center gap-1 ${activeTab === 'files' ? 'text-blue-400' : 'text-white/40'}`}
                     >
                         <FileText size={24} />
-                        <span className="text-xs font-medium">Files</span>
+                        <span className="text-xs font-medium">Archivos</span>
                     </button>
 
                     <button
@@ -164,7 +164,7 @@ export function FolderContents({ folderName, onBack, onFileClick }: FolderConten
                         className={`flex flex-col items-center gap-1 ${activeTab === 'starred' ? 'text-blue-400' : 'text-white/40'}`}
                     >
                         <Star size={24} />
-                        <span className="text-xs font-medium">Starred</span>
+                        <span className="text-xs font-medium">Destacados</span>
                     </button>
 
                     <button
@@ -172,14 +172,14 @@ export function FolderContents({ folderName, onBack, onFileClick }: FolderConten
                         className={`flex flex-col items-center gap-1 ${activeTab === 'recent' ? 'text-blue-400' : 'text-white/40'}`}
                     >
                         <Clock size={24} />
-                        <span className="text-xs font-medium">Recent</span>
+                        <span className="text-xs font-medium">Recientes</span>
                     </button>
 
                     <button
                         className="flex flex-col items-center gap-1 text-white/40"
                     >
                         <SettingsIcon size={24} />
-                        <span className="text-xs font-medium">Settings</span>
+                        <span className="text-xs font-medium">Configuración</span>
                     </button>
                 </div>
             </div>
