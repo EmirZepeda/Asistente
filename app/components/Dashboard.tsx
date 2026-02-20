@@ -48,6 +48,8 @@ const typeLabelMap: Record<FolderType, string> = {
 
 export function Dashboard({ onFolderClick, onSettingsClick, onStorageClick, onNewFolderClick, folders, onFolderStatusChange }: DashboardProps) {
     const [searchQuery, setSearchQuery] = useState('');
+    const [openMenuId, setOpenMenuId] = useState<string | null>(null);
+    const [menuPos, setMenuPos] = useState({ top: 0, right: 0 });
 
     const filtered = folders.filter(f =>
         f.name.toLowerCase().includes(searchQuery.toLowerCase())
@@ -132,6 +134,7 @@ export function Dashboard({ onFolderClick, onSettingsClick, onStorageClick, onNe
                             return (
                                 <FolderCard
                                     key={folder.id}
+                                    id={folder.id}
                                     icon={icon as any}
                                     iconColor={iconColor}
                                     title={folder.name}
@@ -141,6 +144,10 @@ export function Dashboard({ onFolderClick, onSettingsClick, onStorageClick, onNe
                                     onHide={() => onFolderStatusChange(folder.id, 'hidden')}
                                     onArchive={() => onFolderStatusChange(folder.id, 'archived')}
                                     onDelete={() => onFolderStatusChange(folder.id, 'deleted')}
+                                    menuOpenId={openMenuId}
+                                    onMenuOpen={(id, top, right) => { setOpenMenuId(id); setMenuPos({ top, right }); }}
+                                    onMenuClose={() => setOpenMenuId(null)}
+                                    menuPos={menuPos}
                                 />
                             );
                         })}
